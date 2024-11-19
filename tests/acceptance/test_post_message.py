@@ -25,7 +25,6 @@ class TestPostMessage(TestCase):
             current_time,
         ]
 
-
         cli.start()
 
         mock_printer.output.assert_called_with(
