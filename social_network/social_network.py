@@ -1,0 +1,2 @@
+class SocialNetwork:
+    raise NotImplemented
