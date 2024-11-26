@@ -21,6 +21,7 @@ class SocialNetworkCLI:
 
         while True:
             command = self.input_wrapper.read_input()
+            self.parse_input.process(command)
             
             if command == "exit":
                 print("Toodaloo!")

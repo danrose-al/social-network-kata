@@ -24,6 +24,4 @@ class TestSocialNetworkCLI(TestCase):
         
         social_network_cli.start()
 
-        social_network_cli.parse_input.parse_input.assert_called()
-
-# 
+        social_network_cli.parse_input.process.assert_called()
