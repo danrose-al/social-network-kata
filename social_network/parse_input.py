@@ -16,5 +16,8 @@ class ParseInput:
             split_list = [data.strip() for data in input.split("follows")]
             follower, followee = split_list[0], split_list[1]
             self.social_network_api.follows(follower, followee)
+        elif "wall" in input:
+            user = input.replace("wall", "").strip()
+            self.social_network_api.wall(user)
 
 
