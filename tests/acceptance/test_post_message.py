@@ -10,6 +10,7 @@ from social_network.clock import Clock
 from social_network.parse_input import ParseInput
 
 
+
 class TestPostMessage(TestCase):
 
     def test_user_can_post_and_read_a_message(self):
@@ -42,7 +43,7 @@ class TestPostMessage(TestCase):
         )
 
 
-# >>> THIS IS TO NOT LOSE THE STRING OF THE TEST
+# >>> THIS IS TO NOT LOSE THE STRING OF THE
 # def test_user_can_post_message_to_timeline(self):
 #     # Given
 #     mock_input = Mock(InputWrapper)
