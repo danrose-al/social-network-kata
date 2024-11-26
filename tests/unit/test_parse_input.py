@@ -14,11 +14,30 @@ class TestParseInput(TestCase):
 
         mock_social_network_api.post.assert_called_once_with('Alice', 'I love the weather today')
     
-    # def test_translation_of_string_read(self):
-    #     mock_social_network_api = Mock(SocialNetworkAPI)
-    #     parse_input = ParseInput(social_network_api = mock_social_network_api)
+    def test_translation_of_string_read(self):
+        mock_social_network_api = Mock(SocialNetworkAPI)
+        parse_input = ParseInput(social_network_api = mock_social_network_api)
 
-    #     parse_input.process
+        parse_input.process("Alice")
+
+        mock_social_network_api.read.assert_called_once_with("Alice")
+    
+    def test_translation_of_string_follow(self):
+        mock_social_network_api = Mock(SocialNetworkAPI)
+        parse_input = ParseInput(social_network_api = mock_social_network_api)
+
+        parse_input.process("Charlie follows Alice")
+        
+        mock_social_network_api.follows.assert_called_once_with("Charlie", "Alice")
+    
+    def test_translation_of_string_wall(self):
+        mock_social_network_api = Mock(SocialNetworkAPI)
+        parse_input = ParseInput(social_network_api = mock_social_network_api)
+
+        parse_input.process("Charlie wall")
+        
+        mock_social_network_api.wall.assert_called_once_with("Charlie")
+
 
 
 
