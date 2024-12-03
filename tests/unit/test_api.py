@@ -24,4 +24,9 @@ class TestSocialNetworkAPI(TestCase):
     def test_api_follows(self):
         self.api.follows("Chris", "Alice")
 
-        self.api.repo.follows.assert_called_with("Chris", "Alice")
+        self.api.repo.follow_user.assert_called_with("Chris", "Alice")
+
+    def test_api_wall(self):
+        self.api.wall("Chris")
+
+        self.api.repo.get_wall.assert_called_with("Chris")

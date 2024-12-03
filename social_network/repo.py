@@ -32,3 +32,9 @@ class SocialNetworkRepo:
 
     def get_posts(self, user):
         pass
+
+    def follow_user(self, follower, followee):
+        pass
+
+    def get_wall(self, user):
+        pass

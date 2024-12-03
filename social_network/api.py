@@ -9,7 +9,7 @@ class SocialNetworkAPI:
         self.repo.get_posts(user)
 
     def follows(self, follower, followee):
-        raise NotImplementedError
+        self.repo.follow_user(follower, followee)
 
     def wall(self, user):
-        pass
+        self.repo.get_wall(user)
