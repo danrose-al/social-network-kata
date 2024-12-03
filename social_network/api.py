@@ -6,7 +6,8 @@ class SocialNetworkAPI:
         self.repo.save_post(user, message)
 
     def read(self, user):
-        self.repo.get_posts(user)
+        posts = self.repo.get_posts(user)
+        return "\n".join([f"{user} - {post.message}" for post in posts])
 
     def follows(self, follower, followee):
         self.repo.follow_user(follower, followee)
