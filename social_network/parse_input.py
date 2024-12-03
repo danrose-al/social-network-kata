@@ -1,9 +1,6 @@
-from social_network.api import SocialNetworkAPI
-
-
 class ParseInput:
-    def __init__(self, social_network_api=None):
-        self.social_network_api = social_network_api or SocialNetworkAPI()
+    def __init__(self, social_network_api):
+        self.social_network_api = social_network_api
 
     def process(self, user_input: str) -> None:
         if "->" in user_input:

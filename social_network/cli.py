@@ -7,12 +7,12 @@ class SocialNetworkCLI:
 
     def __init__(
         self,
-        input_wrapper: InputWrapper = None,
-        print_wrapper: PrintWrapper = None,
-        social_network_api: SocialNetworkAPI = SocialNetworkAPI(),
+        input_wrapper: InputWrapper,
+        print_wrapper: PrintWrapper,
+        social_network_api: SocialNetworkAPI,
     ):
-        self.input_wrapper = input_wrapper or InputWrapper()
-        self.parse_input = ParseInput()
+        self.input_wrapper = input_wrapper
+        self.parse_input = ParseInput(social_network_api)
 
     def start(self):
         print("Welcome to the Social Network CLI")

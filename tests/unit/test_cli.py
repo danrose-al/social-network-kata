@@ -1,7 +1,9 @@
 from unittest import TestCase
-from unittest.mock import Mock, MagicMock
+from unittest.mock import Mock
 from social_network.cli import SocialNetworkCLI
+from social_network.api import SocialNetworkAPI
 from social_network.util_wrappers import InputWrapper
+from social_network.util_wrappers import PrintWrapper
 from social_network.parse_input import ParseInput
 
 
@@ -9,7 +11,11 @@ class TestSocialNetworkCLI(TestCase):
 
     def test_cli_gets_input(self):
         input_wrapper = Mock(InputWrapper)
-        social_network_cli = SocialNetworkCLI(input_wrapper)
+        print_wrapper = Mock(PrintWrapper)
+        social_network_api = Mock(SocialNetworkAPI)
+        social_network_cli = SocialNetworkCLI(
+            input_wrapper, print_wrapper, social_network_api
+        )
         input_wrapper.read_input.side_effect = [
             "Alice -> I love the weather today",
             "exit",
@@ -21,8 +27,12 @@ class TestSocialNetworkCLI(TestCase):
 
     def test_cli_parses_input(self):
         input_wrapper = Mock(InputWrapper)
+        print_wrapper = Mock(PrintWrapper)
+        social_network_api = Mock(SocialNetworkAPI)
         parse_input = Mock(ParseInput)
-        social_network_cli = SocialNetworkCLI(input_wrapper)
+        social_network_cli = SocialNetworkCLI(
+            input_wrapper, print_wrapper, social_network_api
+        )
         social_network_cli.parse_input = parse_input
         input_wrapper.read_input.side_effect = [
             "Alice -> I love the weather today",

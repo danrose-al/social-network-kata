@@ -10,7 +10,7 @@ class TestSocialNetworkAPI(TestCase):
         # Arrange
         mock_clock = Mock(Clock)
         repo = Mock(SocialNetworkRepo)
-        api = SocialNetworkAPI(clock=mock_clock, repo=repo)
+        api = SocialNetworkAPI(repo=repo)
         # posts = Posts()
         # api.users.get_user("Chris").posts
         api.post("Chris", "Hello, World!")
