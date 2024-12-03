@@ -1,10 +1,12 @@
 from social_network.post import Post
-from dataclasses import dataclasses
+from dataclasses import dataclass
 
-@dataclasses
+
+@dataclass
 class User:
     username: str
     posts: list[Post]
+
 
 class SocialNetworkRepo:
     def __init__(self):
