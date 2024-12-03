@@ -44,4 +44,4 @@ class SocialNetworkRepo:
         self.users[follower].following.append(followee)
 
     def get_wall(self, user):
-        pass
+        raise NotImplementedError
