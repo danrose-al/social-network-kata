@@ -29,3 +29,6 @@ class SocialNetworkRepo:
         else:
             user = self.users[username]
             user.posts.append(post)
+
+    def get_posts(self, user):
+        pass

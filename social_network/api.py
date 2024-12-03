@@ -6,10 +6,10 @@ class SocialNetworkAPI:
         self.repo.save_post(user, message)
 
     def read(self, user):
-        pass
+        self.repo.get_posts(user)
 
     def follows(self, follower, followee):
-        pass
+        raise NotImplementedError
 
     def wall(self, user):
         pass
