@@ -38,7 +38,7 @@ class SocialNetworkRepo:
         return self.users[username].posts
 
     def follow_user(self, follower, followee):
-        pass
+        raise NotImplementedError
 
     def get_wall(self, user):
-        pass
+        raise NotImplementedError
