@@ -10,22 +10,19 @@ from social_network.clock import Clock
 from social_network.parse_input import ParseInput
 
 
-
 class TestPostMessage(TestCase):
 
     def test_user_can_post_and_read_a_message(self):
         # ? Objects - User, Post, Wall (API probably cares about these?)
         mock_clock = Mock(Clock)
-        social_network_api = SocialNetworkAPI(
-            clock=mock_clock
-        )
+        social_network_api = SocialNetworkAPI(clock=mock_clock)
         mock_input = Mock(InputWrapper)
         parse_input = ParseInput()
         mock_printer = Mock(PrintWrapper)
         cli = SocialNetworkCLI(
-            input_wrapper=mock_input, 
+            input_wrapper=mock_input,
             social_network_api=social_network_api,
-            print_wrapper=mock_printer 
+            print_wrapper=mock_printer,
         )
         user_input = ["Alice -> I love the weather today", "Alice", "exit"]
         current_time = datetime.now()
