@@ -15,7 +15,6 @@ class SocialNetworkCLI:
         self.parse_input = ParseInput()
 
     def start(self):
-        # raise NotImplementedError
         print("Welcome to the Social Network CLI")
         print("Type 'help' for a list of commands")
 
