@@ -13,6 +13,7 @@ class Post:
 class User:
     name: str
     posts: list[Post]
+    following: list[str]
 
 
 class SocialNetworkRepo:
@@ -22,7 +23,7 @@ class SocialNetworkRepo:
 
     def __create_user(self, username):
         if username not in self.users:
-            user = User(username, [])
+            user = User(username, [], [])
             self.users[username] = user
 
     def save_post(self, username, message):
@@ -38,7 +39,9 @@ class SocialNetworkRepo:
         return self.users[username].posts
 
     def follow_user(self, follower, followee):
-        pass
+        self.__create_user(follower)
+
+        self.users[follower].following.append(followee)
 
     def get_wall(self, user):
         pass

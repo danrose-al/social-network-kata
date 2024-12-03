@@ -23,3 +23,11 @@ class TestSocialNetworkRepo(TestCase):
         repo = SocialNetworkRepo(mock_clock)
 
         assert repo.get_posts("Chris") == []
+
+    def test_repo_follow_user(self):
+        mock_clock = Mock(Clock)
+        repo = SocialNetworkRepo(mock_clock)
+
+        repo.follow_user("Chris", "Octavio")
+
+        assert repo.users["Chris"].following == ["Octavio"]
