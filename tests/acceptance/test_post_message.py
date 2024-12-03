@@ -7,7 +7,6 @@ from social_network.cli import SocialNetworkCLI
 from social_network.api import SocialNetworkAPI
 from social_network.util_wrappers import InputWrapper, PrintWrapper
 from social_network.clock import Clock
-from social_network.parse_input import ParseInput
 
 
 class TestPostMessage(TestCase):
@@ -17,7 +16,6 @@ class TestPostMessage(TestCase):
         mock_clock = Mock(Clock)
         social_network_api = SocialNetworkAPI(clock=mock_clock)
         mock_input = Mock(InputWrapper)
-        parse_input = ParseInput()
         mock_printer = Mock(PrintWrapper)
         cli = SocialNetworkCLI(
             input_wrapper=mock_input,
