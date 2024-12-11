@@ -1,7 +1,7 @@
 from unittest import TestCase
 from unittest.mock import Mock
 
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from social_network.repo import SocialNetworkRepo, Post
 from social_network.clock import Clock

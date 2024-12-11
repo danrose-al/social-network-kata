@@ -40,6 +40,3 @@ class TestParseInput(TestCase):
         parse_input.process("Charlie wall")
 
         mock_social_network_api.wall.assert_called_once_with("Charlie")
-
-    # def test_call_api_with_command(self):
-    #     pass

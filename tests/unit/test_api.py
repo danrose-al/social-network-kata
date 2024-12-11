@@ -3,13 +3,15 @@ from unittest.mock import Mock
 from social_network.api import SocialNetworkAPI
 from social_network.repo import SocialNetworkRepo
 from social_network.clock import Clock
+from social_network.formatter import Formatter
 
 
 class TestSocialNetworkAPI(TestCase):
     def setUp(self):
         self.mock_clock = Mock(Clock)
         self.repo = Mock(SocialNetworkRepo)
-        self.api = SocialNetworkAPI(self.repo)
+        self.formatter = Mock(Formatter)
+        self.api = SocialNetworkAPI(self.repo, self.formatter)
 
     def test_api_post(self):
         self.api.post("Chris", "Hello, World!")

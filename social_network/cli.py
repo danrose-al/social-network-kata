@@ -4,6 +4,9 @@ from social_network.parse_input import ParseInput
 
 
 class SocialNetworkCLI:
+    """
+    SocialNetworkCLI class is responsible for handling user input and output
+    """
 
     def __init__(
         self,
@@ -13,15 +16,19 @@ class SocialNetworkCLI:
     ):
         self.input_wrapper = input_wrapper
         self.parse_input = ParseInput(social_network_api)
+        self.print_wrapper = print_wrapper
 
     def start(self):
-        print("Welcome to the Social Network CLI")
-        print("Type 'help' for a list of commands")
+        self.print_wrapper.output("Welcome to the Social Network CLI")
+        self.print_wrapper.output("Type 'help' for a list of commands")
 
         while True:
             command = self.input_wrapper.read_input()
-            self.parse_input.process(command)
+            output = self.parse_input.process(command)
+
+            if output:
+                self.print_wrapper.output(output)
 
             if command == "exit":
-                print("Toodaloo!")
+                self.print_wrapper.output("Toodaloo!")
                 break
